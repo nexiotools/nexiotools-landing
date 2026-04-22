@@ -36,8 +36,7 @@
     .lang-btn { padding:6px 12px; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; cursor:pointer; border:none; background:transparent; color:var(--muted); transition:background .18s,color .18s; }
     .lang-btn.active { background:var(--coral); color:white; }
 
-    .nav-cta { font-size:12px; font-weight:600; background:var(--coral); color:white; border-radius:8px; padding:8px 18px; text-decoration:none; transition:opacity .2s; }
-    .nav-cta:hover { opacity:.85; }
+    .nav-cta { display: none; }
 
     /* HERO */
     .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:140px 24px 100px; position:relative; }
@@ -114,10 +113,11 @@
     .how-p { font-size:13px; color:var(--muted); line-height:1.7; font-weight:300; }
 
     /* PRICING */
-    .pricing-banner { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:48px 56px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
-    .pricing-left h3 { font-family:'Syne',sans-serif; font-size:clamp(22px,3vw,32px); font-weight:800; letter-spacing:-.03em; margin-bottom:10px; }
+    .pricing-banner { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:48px 56px; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:nowrap; }
+    .pricing-left { flex:1; min-width:200px; }
+    .pricing-left h3 { font-family:'Syne',sans-serif; font-size:clamp(28px,3.5vw,42px); font-weight:800; letter-spacing:-.03em; line-height:1.05; margin-bottom:14px; }
     .pricing-left p { font-size:14px; color:var(--muted); font-weight:300; max-width:380px; line-height:1.7; }
-    .pricing-tiers { display:flex; gap:12px; flex-wrap:wrap; }
+    .pricing-tiers { display:flex; gap:12px; flex-wrap:nowrap; flex-shrink:0; }
     .tier { background:var(--surface2); border:1px solid var(--border); border-radius:14px; padding:20px 24px; text-align:center; min-width:110px; }
     .tier-price { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; letter-spacing:-1px; }
     .tier-name { font-size:11px; color:var(--muted); margin-top:4px; letter-spacing:.08em; text-transform:uppercase; }
@@ -146,17 +146,55 @@
 
     /* RESPONSIVE */
     @media(max-width:900px) {
-      .products,.how-grid,.about-grid { grid-template-columns:1fr; }
-      .how-item { border-right:none; border-bottom:1px solid var(--border); }
-      .how-item:last-child { border-bottom:none; }
-      .about-mark-wrap { display:none; }
-      .pricing-banner { padding:32px; }
       nav { padding:16px 20px; }
       .nav-links { display:none; }
+      .hero { padding:120px 20px 80px; }
+      .hero-proof { gap:28px; }
+      .products { grid-template-columns:1fr 1fr; }
+      .products .pcard:last-child { grid-column: 1 / -1; }
+      .how-grid { grid-template-columns:1fr; }
+      .how-item { border-right:none; border-bottom:1px solid var(--border); }
+      .how-item:last-child { border-bottom:none; }
+      .about-grid { grid-template-columns:1fr; gap:40px; }
+      .about-mark-wrap { display:none; }
+      .pricing-banner { flex-direction:column; align-items:flex-start; padding:32px; flex-wrap:wrap; }
+      .pricing-tiers { flex-wrap:wrap; width:100%; }
+      .tier { flex:1; min-width:90px; }
     }
     @media(max-width:600px) {
-      .hero-proof { gap:28px; }
-      .pricing-tiers { justify-content:center; }
+      nav { padding:14px 16px; }
+      .nav-wordmark { font-size:12px; }
+      .lang-btn { padding:5px 8px; font-size:11px; }
+      .hero { padding:100px 16px 60px; }
+      .hero-title { font-size:clamp(32px,10vw,48px); }
+      .hero-desc { font-size:15px; }
+      .hero-actions { flex-direction:column; align-items:center; }
+      .btn { width:100%; justify-content:center; }
+      .hero-proof { gap:20px; }
+      .proof-n { font-size:24px; }
+      .proof-l { font-size:11px; }
+      .wrap { padding:0 16px; }
+      .section { padding:60px 0; }
+      .section-h { font-size:clamp(24px,7vw,36px); }
+      .products { grid-template-columns:1fr; }
+      .products .pcard:last-child { grid-column:auto; }
+      .pcard { padding:24px; }
+      .how-item { padding:24px 20px; }
+      .pricing-banner { padding:24px; }
+      .pricing-left h3 { font-size:clamp(22px,7vw,32px); }
+      .pricing-tiers { gap:8px; }
+      .tier { padding:16px; min-width:80px; }
+      .tier-price { font-size:22px; }
+      .about-body .section-h { font-size:clamp(22px,7vw,32px); }
+      .tags { gap:6px; }
+      .tag { font-size:11px; padding:5px 10px; }
+      .footer-inner { flex-direction:column; align-items:flex-start; gap:20px; }
+      .footer-links { flex-wrap:wrap; gap:16px; }
+    }
+    @media(max-width:380px) {
+      .hero-title { font-size:30px; }
+      .pricing-tiers { flex-direction:column; }
+      .tier { width:100%; }
     }
   </style>
 </head>
@@ -315,8 +353,8 @@
     <div class="wrap">
       <div class="pricing-banner reveal">
         <div class="pricing-left">
-          <h3 data-nl="Eén keer betalen.<br>Voor altijd gebruiken." data-en="Pay once.<br>Use forever.">Eén keer betalen.<br>Voor altijd gebruiken.</h3>
-          <p data-nl="Geen maandelijks abonnement. Geen verborgen kosten. Kies het pakket dat bij je past — of gebruik Looncheck gewoon gratis." data-en="No monthly subscription. No hidden fees. Choose the plan that fits — or just use Looncheck for free.">Geen maandelijks abonnement. Geen verborgen kosten. Kies het pakket dat bij je past — of gebruik Looncheck gewoon gratis.</p>
+          <h3 data-nl="Eén keer betalen. Voor altijd." data-en="Pay once. Use forever.">Eén keer betalen. Voor altijd.</h3>
+          <p data-nl="Geen maandelijks abonnement. Geen verborgen kosten. Kies het pakket dat bij je past, of gebruik Looncheck gewoon gratis." data-en="No monthly subscription. No hidden fees. Choose the plan that fits, or just use Looncheck for free.">Geen maandelijks abonnement. Geen verborgen kosten. Kies het pakket dat bij je past, of gebruik Looncheck gewoon gratis.</p>
         </div>
         <div class="pricing-tiers">
           <div class="tier">
