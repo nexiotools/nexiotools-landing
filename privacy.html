@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Nexio Tools</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #111118; --border: rgba(255,255,255,0.07);
+      --text: #f0ece8; --muted: rgba(240,236,232,0.48); --faint: rgba(240,236,232,0.2);
+      --coral: #ff4f4f;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 13px; margin-bottom: 48px; transition: color 0.2s; }
+    .back:hover { color: var(--text); }
+    .kicker { font-size: 11px; font-weight: 600; color: var(--coral); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(28px, 5vw, 44px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: var(--muted); margin-bottom: 56px; }
+    h2 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin: 40px 0 12px; }
+    p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.8; margin-bottom: 12px; }
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .notice { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 32px 0; }
+    .notice p { margin: 0; color: var(--text); font-weight: 400; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { font-size: 12px; color: var(--faint); text-decoration: none; }
+    footer a:hover { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="/" class="back">← nexiotools.nl</a>
+
+    <p class="kicker">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: April 2026</p>
+
+    <div class="notice">
+      <p>Your content is processed securely and never stored. We only retain your email address for access management.</p>
+    </div>
+
+    <h2>Who we are</h2>
+    <p>Nexio Tools is operated by an individual based in Rotterdam, the Netherlands. If you have any questions about this privacy policy, contact us at <a href="mailto:nexio.tools@gmail.com">nexio.tools@gmail.com</a>.</p>
+
+    <h2>What data we collect</h2>
+    <p>We collect your email address when you purchase access to one of our tools. This is stored securely and used solely to verify your access status.</p>
+
+    <h2>What we do NOT collect</h2>
+    <p>We do not store, log or retain any content you submit to our tools -- meeting notes, CVs, contracts or salary data. Your content is sent to the Anthropic API for processing and immediately discarded after the response is returned. No content is ever written to our database.</p>
+
+    <h2>Anthropic API</h2>
+    <p>Content submitted to BrieflyAI, CraftCV and Contract2Check is processed via the Anthropic API. Anthropic does not use API data to train their models by default. See <a href="https://anthropic.com/privacy" target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a> for full details.</p>
+
+    <h2>Cookies</h2>
+    <p>We use cookies solely to remember your access status locally in your browser. We use Google AdSense on Looncheck which may place cookies for advertising purposes. You can manage your cookie preferences via the consent banner shown on first visit.</p>
+
+    <h2>Your rights under GDPR</h2>
+    <p>Under GDPR you have the right to access, correct or delete your personal data. To request deletion of your email address from our system, contact us at <a href="mailto:nexio.tools@gmail.com">nexio.tools@gmail.com</a> and we will remove it within 48 hours.</p>
+
+    <h2>Data retention</h2>
+    <p>Email addresses are stored for the duration of your access period and automatically deleted upon expiry. Starter access expires after 3 months, Pro after 1 year. Lifetime access is retained until deletion is requested.</p>
+
+    <h2>Third parties</h2>
+    <p>We use the following third-party services:</p>
+    <p><strong>Lemon Squeezy</strong> -- payment processing. See <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener noreferrer">lemonsqueezy.com/privacy</a>.</p>
+    <p><strong>Upstash</strong> -- secure Redis database for access management. Data stored in Frankfurt, Germany (EU). See <a href="https://upstash.com/trust/privacy.pdf" target="_blank" rel="noopener noreferrer">upstash.com/trust/privacy.pdf</a>.</p>
+    <p><strong>Anthropic</strong> -- AI processing. See <a href="https://anthropic.com/privacy" target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a>.</p>
+    <p><strong>Google AdSense</strong> -- advertising on Looncheck only. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
+    <p><strong>Vercel</strong> -- hosting infrastructure. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+
+    <h2>Contact</h2>
+    <p>For any privacy-related questions or requests: <a href="mailto:nexio.tools@gmail.com">nexio.tools@gmail.com</a></p>
+
+    <hr />
+
+    <footer>
+      <a href="/">nexiotools.nl</a>
+      <div style="display:flex;gap:24px;">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="mailto:nexio.tools@gmail.com">Contact</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
