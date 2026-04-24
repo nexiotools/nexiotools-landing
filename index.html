@@ -30,13 +30,10 @@
     .nav-links { display:flex; gap:28px; }
     .nav-links a { font-size:13px; color:var(--muted); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:var(--text); }
-
-    /* Language toggle */
     .lang-toggle { display:flex; background:var(--surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
     .lang-btn { padding:6px 12px; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; cursor:pointer; border:none; background:transparent; color:var(--muted); transition:background .18s,color .18s; }
     .lang-btn.active { background:var(--coral); color:white; }
-
-    .nav-cta { display: none; }
+    .nav-cta { display:none; }
 
     /* HERO */
     .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:140px 24px 100px; position:relative; }
@@ -69,14 +66,15 @@
     .section-h { font-family:'Syne',sans-serif; font-size:clamp(30px,4.5vw,48px); font-weight:800; letter-spacing:-.03em; line-height:1.08; margin-bottom:14px; }
     .section-p { font-size:15px; font-weight:300; color:var(--muted); max-width:440px; line-height:1.75; }
 
-    /* PRODUCTS */
-    .products { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    /* PRODUCTS — 4 cols on wide, 2 on tablet, 1 on mobile */
+    .products { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
     .pcard { position:relative; overflow:hidden; background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:32px; text-decoration:none; color:var(--text); display:flex; flex-direction:column; transition:transform .22s,border-color .22s,box-shadow .22s; }
-    .pcard:hover { transform:translateY(-5px); }
+    .pcard:not(.p-soon):hover { transform:translateY(-5px); }
     .pcard::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
     .p-briefly::before { background:var(--gold); }
     .p-craftcv::before { background:var(--coral); }
     .p-loon::before { background:var(--blue); }
+    .p-soon::before { background:transparent; }
     .p-briefly:hover { border-color:rgba(255,200,80,.2); box-shadow:0 24px 64px rgba(255,200,80,.05); }
     .p-craftcv:hover { border-color:rgba(255,79,79,.2); box-shadow:0 24px 64px rgba(255,79,79,.05); }
     .p-loon:hover { border-color:rgba(79,142,255,.2); box-shadow:0 24px 64px rgba(79,142,255,.05); }
@@ -84,6 +82,7 @@
     .p-briefly .pcard-icon { background:rgba(255,200,80,.1); }
     .p-craftcv .pcard-icon { background:rgba(255,79,79,.08); }
     .p-loon .pcard-icon { background:rgba(79,142,255,.08); }
+    .p-soon .pcard-icon { background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.08); }
     .pcard-tag { display:inline-block; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border-radius:100px; padding:4px 10px; margin-bottom:12px; }
     .p-briefly .pcard-tag { background:rgba(255,200,80,.1); color:var(--gold); }
     .p-craftcv .pcard-tag { background:rgba(255,79,79,.08); color:var(--coral); }
@@ -103,6 +102,15 @@
     .p-briefly .pcard-btn { background:rgba(255,200,80,.12); color:var(--gold); }
     .p-craftcv .pcard-btn { background:rgba(255,79,79,.1); color:var(--coral); }
     .p-loon .pcard-btn { background:rgba(79,142,255,.1); color:var(--blue); }
+
+    /* COMING SOON CARD */
+    .p-soon { background:#0d0d12; border-style:dashed; border-color:rgba(255,255,255,.06); cursor:default; }
+    .p-soon .pcard-name { color:rgba(240,236,232,.22); }
+    .p-soon .pcard-desc { color:rgba(240,236,232,.18); }
+    .soon-glow { position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:160px; height:100px; background:radial-gradient(ellipse,rgba(255,79,79,.05) 0%,transparent 70%); pointer-events:none; }
+    .soon-q { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:rgba(255,255,255,.07); line-height:1; }
+    .soon-badge { display:inline-flex; align-items:center; gap:6px; margin-top:auto; padding-top:28px; font-size:10px; font-family:'Syne',sans-serif; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,79,79,.5); }
+    .soon-pulse { width:5px; height:5px; border-radius:50%; background:var(--coral); animation:blink 2s ease infinite; flex-shrink:0; }
 
     /* HOW IT WORKS */
     .how-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:20px; overflow:hidden; }
@@ -145,13 +153,14 @@
     .reveal.in { opacity:1; transform:none; }
 
     /* RESPONSIVE */
+    @media(max-width:1100px) {
+      .products { grid-template-columns:repeat(2,1fr); }
+    }
     @media(max-width:900px) {
       nav { padding:16px 20px; }
       .nav-links { display:none; }
       .hero { padding:120px 20px 80px; }
       .hero-proof { gap:28px; }
-      .products { grid-template-columns:1fr 1fr; }
-      .products .pcard:last-child { grid-column: 1 / -1; }
       .how-grid { grid-template-columns:1fr; }
       .how-item { border-right:none; border-bottom:1px solid var(--border); }
       .how-item:last-child { border-bottom:none; }
@@ -177,7 +186,6 @@
       .section { padding:60px 0; }
       .section-h { font-size:clamp(24px,7vw,36px); }
       .products { grid-template-columns:1fr; }
-      .products .pcard:last-child { grid-column:auto; }
       .pcard { padding:24px; }
       .how-item { padding:24px 20px; }
       .pricing-banner { padding:24px; }
@@ -340,6 +348,21 @@
           </div>
         </a>
 
+        <!-- COMING SOON — 4th product teaser -->
+        <div class="pcard p-soon">
+          <div class="soon-glow"></div>
+          <div class="pcard-icon">
+            <div class="soon-q">?</div>
+          </div>
+          <span class="pcard-tag" style="background:rgba(255,79,79,.05);color:rgba(255,79,79,.3);border:1px dashed rgba(255,79,79,.15);border-radius:100px;" data-nl="Binnenkort" data-en="Coming soon">Binnenkort</span>
+          <div class="pcard-name" data-nl="Nieuw tool" data-en="New tool">Nieuw tool</div>
+          <p class="pcard-desc" data-nl="Een nieuw AI-tool voor Nederlandse professionals. We werken er aan — meer details volgen binnenkort." data-en="A new AI tool for Dutch professionals. We're working on it — more details coming soon.">Een nieuw AI-tool voor Nederlandse professionals. We werken er aan — meer details volgen binnenkort.</p>
+          <div class="soon-badge">
+            <span class="soon-pulse"></span>
+            <span data-nl="In ontwikkeling" data-en="In development">In ontwikkeling</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -417,10 +440,6 @@
         <div class="about-mark-wrap">
           <svg width="180" height="180" viewBox="0 0 200 200" fill="none">
             <rect width="200" height="200" rx="44" fill="#111118"/>
-            <!-- mark centered: H=126, margin=37 each side
-                 barW=H*0.25=31.5, gap=H*0.50=63, rx=barW*0.28=8.8
-                 bar1: x=37, bar2: x=37+31.5+63=131.5
-                 slash top-left=68.5 top-right=100 bot-right=163 bot-left=131.5 -->
             <rect x="37" y="37" width="31.5" height="126" rx="8.8" fill="white" fill-opacity=".9"/>
             <rect x="131.5" y="37" width="31.5" height="126" rx="8.8" fill="white" fill-opacity=".9"/>
             <polygon points="68.5,37 100,37 163,163 131.5,163" fill="#ff4f4f"/>
@@ -445,7 +464,7 @@
         <a href="https://brieflyai.nl" target="_blank">BrieflyAI</a>
         <a href="https://craftcv.nl" target="_blank">CraftCV</a>
         <a href="https://looncheck.vercel.app" target="_blank">Looncheck</a>
-      <a href="/privacy.html">Privacy Policy</a>
+        <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
         <a href="mailto:nexio.tools@gmail.com" data-nl="Contact" data-en="Contact">Contact</a>
       </div>
@@ -461,25 +480,18 @@
     }, {threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // Language switching
     let lang = 'nl';
     function setLang(l) {
       lang = l;
       document.documentElement.lang = l;
       document.getElementById('btn-nl').classList.toggle('active', l==='nl');
       document.getElementById('btn-en').classList.toggle('active', l==='en');
-
       document.querySelectorAll('[data-nl]').forEach(el => {
         const val = el.getAttribute('data-'+l);
         if (!val) return;
-        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-          el.placeholder = val;
-        } else {
-          el.innerHTML = val;
-        }
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+        else el.innerHTML = val;
       });
-
-      // Update page title & meta
       document.title = l === 'nl'
         ? 'Nexio Tools — Slimme AI-tools voor professionals'
         : 'Nexio Tools — Sharp AI tools for professionals';
