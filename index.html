@@ -74,19 +74,21 @@
     .p-briefly::before { background:var(--gold); }
     .p-craftcv::before { background:var(--coral); }
     .p-loon::before { background:var(--blue); }
-    .p-soon::before { background:transparent; }
+    .p-contract::before { background:#22c55e; }
     .p-briefly:hover { border-color:rgba(255,200,80,.2); box-shadow:0 24px 64px rgba(255,200,80,.05); }
     .p-craftcv:hover { border-color:rgba(255,79,79,.2); box-shadow:0 24px 64px rgba(255,79,79,.05); }
     .p-loon:hover { border-color:rgba(79,142,255,.2); box-shadow:0 24px 64px rgba(79,142,255,.05); }
+    .p-contract:hover { border-color:rgba(34,197,94,.2); box-shadow:0 24px 64px rgba(34,197,94,.05); }
     .pcard-icon { width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:20px; }
     .p-briefly .pcard-icon { background:rgba(255,200,80,.1); }
     .p-craftcv .pcard-icon { background:rgba(255,79,79,.08); }
     .p-loon .pcard-icon { background:rgba(79,142,255,.08); }
-    .p-soon .pcard-icon { background:rgba(255,255,255,.03); border:1px dashed rgba(255,255,255,.08); }
+    .p-contract .pcard-icon { background:rgba(34,197,94,.08); }
     .pcard-tag { display:inline-block; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border-radius:100px; padding:4px 10px; margin-bottom:12px; }
     .p-briefly .pcard-tag { background:rgba(255,200,80,.1); color:var(--gold); }
     .p-craftcv .pcard-tag { background:rgba(255,79,79,.08); color:var(--coral); }
     .p-loon .pcard-tag { background:rgba(79,142,255,.08); color:var(--blue); }
+    .p-contract .pcard-tag { background:rgba(34,197,94,.08); color:#22c55e; }
     .pcard-name { font-family:'Syne',sans-serif; font-size:20px; font-weight:700; letter-spacing:-.4px; margin-bottom:10px; }
     .pcard-desc { font-size:14px; font-weight:300; color:var(--muted); line-height:1.72; flex:1; }
     .pcard-features { margin-top:20px; display:flex; flex-direction:column; gap:7px; }
@@ -95,6 +97,7 @@
     .p-briefly .feat-dot { background:var(--gold); }
     .p-craftcv .feat-dot { background:var(--coral); }
     .p-loon .feat-dot { background:var(--blue); }
+    .p-contract .feat-dot { background:#22c55e; }
     .pcard-footer { margin-top:auto; padding-top:20px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; }
     .pcard-price { font-family:'Syne',sans-serif; font-size:11px; font-weight:600; color:var(--muted); display:flex; flex-direction:column; gap:1px; white-space:nowrap; }
     .pcard-price strong { color:var(--text); font-size:18px; font-weight:800; letter-spacing:-.5px; line-height:1; }
@@ -102,6 +105,7 @@
     .p-briefly .pcard-btn { background:rgba(255,200,80,.12); color:var(--gold); }
     .p-craftcv .pcard-btn { background:rgba(255,79,79,.1); color:var(--coral); }
     .p-loon .pcard-btn { background:rgba(79,142,255,.1); color:var(--blue); }
+    .p-contract .pcard-btn { background:rgba(34,197,94,.1); color:#22c55e; }
 
     /* COMING SOON CARD */
     .p-soon { background:#0d0d12; border-style:dashed; border-color:rgba(255,255,255,.06); cursor:default; }
@@ -236,7 +240,7 @@
   <section class="hero">
     <div class="hero-eyebrow">
       <span class="eyebrow-dot"></span>
-      <span data-nl="3 tools live" data-en="3 tools live" data-fr="3 outils en ligne">3 tools live</span>
+      <span data-nl="4 tools live" data-en="4 tools live" data-fr="4 outils en ligne">4 tools live</span>
     </div>
     <h1 class="hero-title">
       <span data-nl="Slimme tools voor<br><em>professionals die resultaat willen.</em>" data-en="Smart tools for<br><em>professionals who want results.</em>" data-fr="Des outils intelligents pour<br><em>les professionnels qui veulent des résultats.</em>">Slimme tools voor<br><em>professionals die resultaat willen.</em></span>
@@ -349,7 +353,31 @@
           </div>
         </a>
 
-        <!-- COMING SOON — 4th product teaser -->
+        <!-- CONTRACTCLARITY -->
+        <a href="https://contract2check.vercel.app" target="_blank" class="pcard p-contract">
+          <div class="pcard-icon">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="6" width="4.5" height="20" rx="1.2" fill="#22c55e"/>
+              <rect x="18" y="6" width="4.5" height="20" rx="1.2" fill="#22c55e"/>
+              <polygon points="9.5,6 14,6 22.5,26 18,26" fill="rgba(34,197,94,0.4)"/>
+            </svg>
+          </div>
+          <span class="pcard-tag" data-nl="Contracttool" data-en="Contract tool" data-fr="Outil contrat">Contracttool</span>
+          <div class="pcard-name">ContractClarity</div>
+          <p class="pcard-desc" data-nl="Upload je arbeidscontract. Onze AI legt elke clausule uit in begrijpelijke taal, signaleert oneerlijke voorwaarden en vergelijkt met de Nederlandse of Franse wetgeving." data-en="Upload your employment contract. Our AI explains every clause in plain language, flags unfair terms and compares against Dutch or French employment law." data-fr="Importez votre contrat de travail. Notre IA explique chaque clause en langage clair, signale les termes abusifs et compare avec le Code du travail français.">Upload je arbeidscontract. Onze AI legt elke clausule uit in begrijpelijke taal, signaleert oneerlijke voorwaarden en vergelijkt met de Nederlandse of Franse wetgeving.</p>
+          <div class="pcard-features">
+            <div class="feat"><span class="feat-dot"></span><span data-nl="Clausule-voor-clausule uitleg" data-en="Clause-by-clause explanation" data-fr="Explication clause par clause">Clausule-voor-clausule uitleg</span></div>
+            <div class="feat"><span class="feat-dot"></span><span data-nl="Risicoscoring per clausule" data-en="Risk score per clause" data-fr="Score de risque par clause">Risicoscoring per clausule</span></div>
+            <div class="feat"><span class="feat-dot"></span><span data-nl="Nederlands en Frans arbeidsrecht" data-en="Dutch and French employment law" data-fr="Droit du travail néerlandais et français">Nederlands en Frans arbeidsrecht</span></div>
+            <div class="feat"><span class="feat-dot"></span><span data-nl="Aandachtspunten gemarkeerd" data-en="Flagged points of attention" data-fr="Points d'attention signalés">Aandachtspunten gemarkeerd</span></div>
+          </div>
+          <div class="pcard-footer">
+            <div class="pcard-price"><span data-nl="Vanaf" data-en="From" data-fr="À partir de">Vanaf</span><strong>€15</strong></div>
+            <span class="pcard-btn" data-nl="Probeer gratis →" data-en="Try free →" data-fr="Essayer gratuitement →">Probeer gratis →</span>
+          </div>
+        </a>
+
+        <!-- COMING SOON -->
         <div class="pcard p-soon">
           <div class="soon-glow"></div>
           <div class="pcard-icon">
@@ -357,7 +385,7 @@
           </div>
           <span class="pcard-tag" style="background:rgba(255,79,79,.05);color:rgba(255,79,79,.3);border:1px dashed rgba(255,79,79,.15);border-radius:100px;" data-nl="Binnenkort" data-en="Coming soon" data-fr="Bientôt disponible">Binnenkort</span>
           <div class="pcard-name" data-nl="Nieuw tool" data-en="New tool" data-fr="Nouvel outil">Nieuw tool</div>
-          <p class="pcard-desc" data-nl="Een nieuw AI-tool voor Nederlandse professionals. We werken er aan — meer details volgen binnenkort." data-en="A new AI tool for Dutch professionals. We're working on it — more details coming soon." data-fr="Un nouvel outil IA pour les professionnels. Nous y travaillons — plus de détails très bientôt.">Een nieuw AI-tool voor Nederlandse professionals. We werken er aan — meer details volgen binnenkort.</p>
+          <p class="pcard-desc" data-nl="Een nieuw AI-tool voor professionals. We werken er aan — meer details volgen binnenkort." data-en="A new AI tool for professionals. We're working on it — more details coming soon." data-fr="Un nouvel outil IA pour les professionnels. Nous y travaillons — plus de détails très bientôt.">Een nieuw AI-tool voor professionals. We werken er aan — meer details volgen binnenkort.</p>
           <div class="soon-badge">
             <span class="soon-pulse"></span>
             <span data-nl="In ontwikkeling" data-en="In development" data-fr="En développement">In ontwikkeling</span>
